@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PinChange from './PinChange'
 import EstadodeCuenta from './EstadodeCuenta'
 import Stocks from './Stocks'
@@ -13,25 +13,21 @@ import {
 
 
 const HomePage = (props) => {
- 
-  
-
 
   return (
     <div>
-
       <Sidebar>
         <SidebarItem 
         icon = {<LayoutDashboard size={20}/>}
         text='Dashboard'
-     
+      
         />
 
       <SidebarItem icon = { <BarChart3 size={20}/>} text = 'Estado de Cuenta'  />
       <SidebarItem icon = { <Receipt size={20}/>} text = 'Acciones' />
       <hr className='my-3' />
       <SidebarItem icon = { <Settings size={20}/>} text = 'Cambio de PIN' />
-      <SidebarItem icon = { <UserCircle size={20}/>} text = 'Cerrar Sesion' />
+      <SidebarItem icon = { <UserCircle size={20}/>} text = 'Cerrar Sesion'  />
 
 
       </Sidebar>

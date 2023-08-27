@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import Popup from '../components/Popup';
 
 const PinChange = (props) => {
-    const [actualpin, setPin] = useState ();
-    const [newPin, setnewPin] = useState ();
-    const [confirmPin, setconfirmPin] = useState ();
+    const [actualpin, setPin] = useState ("");
+    const [newPin, setnewPin] = useState ("");
+    const [confirmPin, setconfirmPin] = useState ("");
     const [erroractualPin, setactualPin] = useState(false);
     const [errornewPin, setnewerrorPin] = useState(false);
     const [erroConfirm, seterrorConfirm]= useState (false);
@@ -104,14 +104,14 @@ if (newPin == confirmPin && props.realPin == actualpin ){
 <form onSubmit={handleSubmitPinChange}>
 <label htmlFor='actualpin'> Ingresa tu PIN </label>
 <input  value= {actualpin} onChange={(e) => setPin (e.target.value)}
-type="password" placeholder='  ******** ' />
+type="password" placeholder='********' />
 
 <label htmlFor='newPin'> Ingresa tu Nuevo PIN </label>
 <input  value= {newPin} onChange={(e) => setnewPin (e.target.value)}
-type="password" placeholder='******** '/>
+type="password" placeholder='********'/>
 <label htmlFor='confirmPin'> Confirma tu nuevo PIN </label>
 <input value= {confirmPin} onChange={(e) => setconfirmPin (e.target.value)} 
-type="password" placeholder='******** ' />
+type="password" placeholder='********' />
 
 <br></br>
 <br></br>
