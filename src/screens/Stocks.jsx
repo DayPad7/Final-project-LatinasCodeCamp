@@ -131,36 +131,46 @@ const handleSubmitStockSell = (e) => {
   return (
 <>
 <Popup trigger={triggerPopUp}>
-       <section>
+       <section className='text-xl font-semibold text-center text-slate-700 '>
       <h3> Verificación</h3> 
       <p> Hola!  Estas seguro de realizar esta compra? </p> 
       <p> Te recordamos que cada accion cuesta:  {props.stocks.price} y el total seria de USD {stockTotalPrice}  </p>
       
-      <button onClick={ComprarStocks} >Continuar</button>  
-      <button onClick={Cancelar} >Cancelar</button>  
+      <button onClick={ComprarStocks}  
+      className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+      >Continuar</button>  
+      <button onClick={Cancelar}  
+      className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+      >Cancelar</button>  
 </section>
       </Popup>
 
       <Popup trigger={triggerPopUpSell}>
-       <section>
+       <section className='text-xl font-semibold text-center text-slate-700 '>
       <h3> Verificación </h3> 
       <p> Hola!  Estas seguro de realizar esta transacción? </p> 
       <p> Te recordamos que cada accion cuesta:  {props.stocks.price} y el total a recibir seria de  USD {stockTotalPrice} </p>
-      <button onClick={Stocksell}> Confirmar </button>
-      <button onClick={Cancelar} >Cancelar</button>  
+      <button onClick={Stocksell} className=" w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+     > Confirmar </button>
+      <button onClick={Cancelar} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+     >Cancelar</button>  
 </section>
       </Popup>
 
 
 
-<h1>Acciones {props.stocks.name}</h1>
-<h4> Estas son tus acciones: {props.stocks.usershare} </h4>
-<section className='Marketstocks'>
+<h1 className='text-2xl font-bold text-center  text-slate-700  py-1'
+>Acciones {props.stocks.name}
+</h1>
+<h4 className='text-1xl font-semibold text-center text-black'>  Estas son tus acciones: {props.stocks.usershare} </h4>
 
-<h2>Mercado de acciones</h2>
+
+<h2 className='text-center text-2xl font-medium text-slate-700'>
+  Mercado de acciones
+  </h2>
 
 
- <div className='Infostocks'>
+ <div className='text-center text-xl font-medium text-slate-700'>
     
     <p> Información </p>
     <p>Precio por cada accion: USD {props.stocks.price}</p>
@@ -168,26 +178,34 @@ const handleSubmitStockSell = (e) => {
   
 
  </div>
+ <section className=" flex flex-col text-center h-full w-full">
 
 <form onSubmit={handleSubmitStocks}>
-<label htmlFor="buyStocks"> Digita la cantidad de acciones de {props.stocks.name} que deseas comprar</label>
+<label className='block' htmlFor="buyStocks"> 
+
+<span className="  text-lg font-medium text-slate-700">
+   Digita la cantidad de acciones de {props.stocks.name} que deseas comprar
+
+    </span>
+
+</label>
 <br />
 <input value = {inputStocks} onChange={(e)=> SetinputStocks( parseInt (e.target.value))}
-type="number" placeholder='cantidad de acciones'/>
+type="number"  className= "mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1"  placeholder='Cantidad de acciones'/>
 <br />
 <br />
-<button onClick={handleSubmitStocks}> ¡Comprar!</button>
+<button onClick={handleSubmitStocks} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."> ¡Comprar!</button>
 
 </form>
 
 <form onSubmit={handleSubmitStockSell}>
-<label htmlFor="sellStocks"> Digita la cantidad de acciones que deseas vender</label>
+<label className='block' htmlFor="sellStocks"> Digita la cantidad de acciones que deseas vender</label>
 <br />
 <input value = {inputStockSell} onChange={(e)=> SetinputSell( parseInt (e.target.value))}
-type="number" placeholder='cantidad de acciones'/>
+type="number"  className= "mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 " placeholder='Cantidad de acciones'/>
 <br />
 <br />
-<button onClick={handleSubmitStockSell}> ¡Vender!</button>
+<button onClick={handleSubmitStockSell} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ...">  ¡Vender!</button>
 
       
       </form>

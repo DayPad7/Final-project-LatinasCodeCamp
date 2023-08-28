@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import Login from './screens/Log-In';
 import HomePage from './screens/HomePage';
+import ErrorBoundary from './components/ErrorBoundary';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+
 import "./index.css";
 
 
@@ -9,7 +12,7 @@ import "./index.css";
 
 function App () {
 
-  const [login, setLogin] = useState(false)
+  const [login, setLogin] = useState(true)
   const [cash, setCash] = useState(100)
   const [appleStocks, setappleStock]= useState ({
     'name': ' Apple Inc',
@@ -27,6 +30,9 @@ const [techStocks, settechStock]= useState ({
 
 
 return (
+  <ErrorBoundary>
+
+    <Router>
 <div className= 'App'
 >
 
@@ -37,14 +43,12 @@ return (
       initialCash = {cash}   setCash= {setCash}
       appleStocks ={appleStocks} setappleStock = {setappleStock}
       techStocks= {techStocks} settechStock = {settechStock}
+      
       />)}
-      
-      
-   
-   
 
 </div>
-
+</Router>
+</ErrorBoundary>
   );
   
 }

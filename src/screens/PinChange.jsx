@@ -85,37 +85,59 @@ if (newPin == confirmPin && props.realPin == actualpin ){
   return (
     <>
   
-    <Popup trigger={triggerPopUp}>
-       <section>
+    <Popup className='absolute' trigger={triggerPopUp}>
+       <section className='text-xl font-semibold text-center text-slate-700 '>
       <h4>¡ Se ha cambiado su PIN exitosamente! </h4> 
       <p>Por favor vuelva a iniciar sesion 🤗  </p>
 
 <br></br>
-      <button onClick={triggerLogout} >Continuar</button>  
+      <button onClick={triggerLogout}  
+      className= " w-1/2 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ...">
+        Continuar
+        </button>  
     
 </section>
       </Popup>
 
-    <section className='Cambio_de_Pin'>
+    <section className=" flex flex-col text-center h-full w-full">
 
-    <h3>Cambio de PIN</h3>
-    <p>Completa los siguientes espacios para cambiar tu PIN</p>
+    <h3 className='text-xl font-bold text-center text-red-400 tracking-wide py-1'>Cambio de PIN</h3>
+    <p className=' block text-lg font-medium text-slate-700'>Completa los siguientes espacios para cambiar tu PIN</p>
 
 <form onSubmit={handleSubmitPinChange}>
-<label htmlFor='actualpin'> Ingresa tu PIN </label>
+<label  className= 'block' htmlFor='actualpin'> 
+<span className=" block text-lg font-medium text-slate-700">
+   Ingresa tu PIN 
+    </span>
+
 <input  value= {actualpin} onChange={(e) => setPin (e.target.value)}
-type="password" placeholder='********' />
+type="password"  
+className="mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 "
+ placeholder='********' />
+</label>
 
-<label htmlFor='newPin'> Ingresa tu Nuevo PIN </label>
+
+<label className='block' htmlFor='newPin'> 
+<span className=" block text-lg font-medium text-slate-700">
+   Ingresa tu  nuevo PIN 
+    </span>
 <input  value= {newPin} onChange={(e) => setnewPin (e.target.value)}
-type="password" placeholder='********'/>
-<label htmlFor='confirmPin'> Confirma tu nuevo PIN </label>
-<input value= {confirmPin} onChange={(e) => setconfirmPin (e.target.value)} 
-type="password" placeholder='********' />
+type="password" className= "mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 " placeholder='********'/>
+ </label>
+
+<label className= 'block'htmlFor='confirmPin'> 
+<span className=" block text-lg font-medium text-slate-700">
+   Confirma tu  nuevo PIN 
+    </span>
+  <input value= {confirmPin} onChange={(e) => setconfirmPin (e.target.value)} 
+type="password"  className= "mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 " 
+placeholder='********' />  
+ </label>
+
 
 <br></br>
 <br></br>
-      <button type= 'submit'>Continuar</button>  
+<button type= 'submit' className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..." >  Continuar  </button>     
 
 
 </form>
