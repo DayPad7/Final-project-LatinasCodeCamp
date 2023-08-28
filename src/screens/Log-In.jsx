@@ -14,9 +14,7 @@ const Login = (props) => {
    
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("invoke - handleSubmit")
-    console.log(props.fullname);
-    console.log (props.username);
+   
     SetErrorName(false)
     SetErrorUsername(false)
    
@@ -25,13 +23,13 @@ const Login = (props) => {
     var validationError = false
 
     if  (!props.fullname){
-      console.log("invoke - handleSubmit - no full name")
+      
       SetErrorName(true)
       validationError = true
     };
 
     if  (!props.username) {
-      console.log("invoke - handleSubmit - no name")
+      
 
       SetErrorUsername (true);
       validationError = true
@@ -40,7 +38,7 @@ const Login = (props) => {
 
 
   if (validationError === false) {
-    console.log("turning on popup")
+    
 setTriggerPopUp(true);
   }
 
@@ -51,24 +49,22 @@ setTriggerPopUp(true);
   const handleSubmitPopup = (e) => {
     e.preventDefault();
    
-    console.log("handlesubmitpopup")
-    console.log(inputPin)
-    console.log(props.realPin)
+    
 
     SetErrorPin(false);
     
     if  (!inputPin) {
-      console.log("invoke - handleSubmit - no pin")
+     
       SetErrorPin (true);
       return
     };
 
     if (inputPin === props.realPin) {
-      console.log("loggin in")
+     
       props.setLoginStatus(true); 
     };
     if (inputPin !== props.realPin){
-      console.log ("wrong pin")
+      
       
       SetErrorPin (true);
       return

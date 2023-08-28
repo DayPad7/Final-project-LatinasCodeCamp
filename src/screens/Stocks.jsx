@@ -14,7 +14,7 @@ const [inputStockSell, SetinputSell] = useState (0)
 
 // Apple Stocks
 const handleSubmitStocks = (e) => {
-    console.log ('handlesubmit')
+    
 e.preventDefault ();
 
 
@@ -24,7 +24,7 @@ if (!inputStocks) {
 }
 if (inputStocks) {
    setStockTotalPrice((inputStocks) * (props.stocks.price))
-   console.log ('pop up on')
+   
    setTriggerPopUp(true);
 
 };

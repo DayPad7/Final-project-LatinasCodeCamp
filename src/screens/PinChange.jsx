@@ -17,9 +17,7 @@ const PinChange = (props) => {
     const handleSubmitPinChange = (e) => {
         e.preventDefault();
 
-        console.log (newPin)
-        console.log (confirmPin)
-        console.log (actualpin)
+        
         seterrorConfirm(false)
         setnewerrorPin(false)
         setactualPin (false)
