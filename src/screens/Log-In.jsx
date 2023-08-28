@@ -140,7 +140,7 @@ setTriggerPopUp(true);
         
        <br></br>  
        <br></br>
-     <button type= 'submit' className= " w-1/2 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..." >  Continuar  </button>    
+     <button type= 'submit' className= " w-40 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..." >  Continuar  </button>    
      </form>
      
      

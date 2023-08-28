@@ -86,7 +86,7 @@ if (newPin == confirmPin && props.realPin == actualpin ){
     <Popup className='absolute' trigger={triggerPopUp}>
        <section className='text-xl  text-center '>
       <h4>¡ Se ha cambiado su PIN exitosamente! </h4> 
-      <p>Por favor vuelva a iniciar sesion 🤗  </p>
+      <p>Por favor vuelva a iniciar sesión 🤗  </p>
 
 <br></br>
       <button onClick={triggerLogout}  
