@@ -5,10 +5,10 @@ import Popup from '../components/Popup'
 //Have multiple types of stocks that a user can buy and sell, on unique stock price
 const Stocks = (props) => {
 const [stockTotalPrice, setStockTotalPrice] = useState (0)
-const [inputStocks, SetinputStocks] = useState ()
+const [inputStocks, SetinputStocks] = useState (0)
 const [triggerPopUp, setTriggerPopUp] = useState (false)
 const [triggerPopUpSell, setTriggerPopUpSell] = useState (false)
-const [inputStockSell, SetinputSell] = useState ()
+const [inputStockSell, SetinputSell] = useState (0)
 
 
 
@@ -131,46 +131,46 @@ const handleSubmitStockSell = (e) => {
   return (
 <>
 <Popup trigger={triggerPopUp}>
-       <section className='text-xl font-semibold text-center text-slate-700 '>
-      <h3> Verificación</h3> 
+       <section className='text-xl  text-center'>
+      <h3 className='font-semibold'> Verificación</h3> 
       <p> Hola!  Estas seguro de realizar esta compra? </p> 
       <p> Te recordamos que cada accion cuesta:  {props.stocks.price} y el total seria de USD {stockTotalPrice}  </p>
       
       <button onClick={ComprarStocks}  
-      className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+      className= " w-40  text-xl rounded-md py-2 m-1 bg-red-300 hover:bg-red-400 ..."
       >Continuar</button>  
       <button onClick={Cancelar}  
-      className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+      className= " w-40  text-xl rounded-md py-2 m-1 bg-red-300 hover:bg-red-400 ..."
       >Cancelar</button>  
 </section>
       </Popup>
 
       <Popup trigger={triggerPopUpSell}>
-       <section className='text-xl font-semibold text-center text-slate-700 '>
-      <h3> Verificación </h3> 
+       <section className='text-xl  text-center'>
+      <h3 className='text-1xl font-semibold'> Verificación </h3> 
       <p> Hola!  Estas seguro de realizar esta transacción? </p> 
-      <p> Te recordamos que cada accion cuesta:  {props.stocks.price} y el total a recibir seria de  USD {stockTotalPrice} </p>
-      <button onClick={Stocksell} className=" w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+      <p> Te recordamos que cada accion cuesta: USD {props.stocks.price} y el total a recibir seria de  USD {stockTotalPrice} </p>
+      <button onClick={Stocksell} className=" w-40  text-xl rounded-md py-2 m-1 bg-red-300 hover:bg-red-400 ..."
      > Confirmar </button>
-      <button onClick={Cancelar} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."
+      <button onClick={Cancelar} className= " w-40  text-xl rounded-md py-2 m-1 bg-red-300 hover:bg-red-400 ..."
      >Cancelar</button>  
 </section>
       </Popup>
 
+      <section className=" flex flex-col text-center h-full w-full m-10 ">
 
-
-<h1 className='text-2xl font-bold text-center  text-slate-700  py-1'
+<h1 className='text-2xl font-bold text-center   py-1'
 >Acciones {props.stocks.name}
 </h1>
 <h4 className='text-1xl font-semibold text-center text-black'>  Estas son tus acciones: {props.stocks.usershare} </h4>
 
-
-<h2 className='text-center text-2xl font-medium text-slate-700'>
+<br></br>
+<h2 className='text-center text-2xl font-medium'>
   Mercado de acciones
   </h2>
 
 
- <div className='text-center text-xl font-medium text-slate-700'>
+ <div className='text-center text-xl '>
     
     <p> Información </p>
     <p>Precio por cada accion: USD {props.stocks.price}</p>
@@ -183,8 +183,8 @@ const handleSubmitStockSell = (e) => {
 <form onSubmit={handleSubmitStocks}>
 <label className='block' htmlFor="buyStocks"> 
 
-<span className="  text-lg font-medium text-slate-700">
-   Digita la cantidad de acciones de {props.stocks.name} que deseas comprar
+<span className="  text-lg font-medium">
+   Digita la cantidad de acciones que deseas comprar
 
     </span>
 
@@ -194,21 +194,30 @@ const handleSubmitStockSell = (e) => {
 type="number"  className= "mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1"  placeholder='Cantidad de acciones'/>
 <br />
 <br />
-<button onClick={handleSubmitStocks} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..."> ¡Comprar!</button>
+<button onClick={handleSubmitStocks} className= " w-40 font-medium text-xl rounded-md py-2  bg-red-300 hover:bg-red-400 ..."> ¡Comprar!</button>
 
 </form>
+<br />
 
 <form onSubmit={handleSubmitStockSell}>
-<label className='block' htmlFor="sellStocks"> Digita la cantidad de acciones que deseas vender</label>
+<label className='block' htmlFor="sellStocks"> 
+<span className="  text-lg font-medium">
+   Digita la cantidad de acciones que deseas vender
+
+    </span>
+
+</label>
+<br />
 <br />
 <input value = {inputStockSell} onChange={(e)=> SetinputSell( parseInt (e.target.value))}
 type="number"  className= "mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 " placeholder='Cantidad de acciones'/>
 <br />
-<br />
-<button onClick={handleSubmitStockSell} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ...">  ¡Vender!</button>
+<br></br>
+<button onClick={handleSubmitStockSell} className= " w-40 font-medium text-xl rounded-md py-2  bg-red-300 hover:bg-red-400 ...">  ¡Vender!</button>
 
       
       </form>
+</section>
 </section>
 </>
   )

@@ -2,8 +2,7 @@ import react, {useState} from "react";
 import Popup from "../components/Popup";
 const Login = (props) => {
 
-  const [fullname, setFullname] =useState ('');
-  const [username, setUsername] = useState ('');
+ 
   const [errorName, SetErrorName]= useState (false);
   const [errorUsername, SetErrorUsername]= useState (false);
   const [errorPin, SetErrorPin]= useState (false);
@@ -16,8 +15,8 @@ const Login = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("invoke - handleSubmit")
-    console.log(fullname);
-    console.log (username);
+    console.log(props.fullname);
+    console.log (props.username);
     SetErrorName(false)
     SetErrorUsername(false)
    
@@ -25,13 +24,13 @@ const Login = (props) => {
 
     var validationError = false
 
-    if  (!fullname){
+    if  (!props.fullname){
       console.log("invoke - handleSubmit - no full name")
       SetErrorName(true)
       validationError = true
     };
 
-    if  (!username) {
+    if  (!props.username) {
       console.log("invoke - handleSubmit - no name")
 
       SetErrorUsername (true);
@@ -96,7 +95,7 @@ setTriggerPopUp(true);
 
        <section  className=" flex flex-col text-center ">
       <h3 className="text-xl font-semibold text-center text-slate-700 "> 
-      ¡Bienvenido {fullname}!
+      ¡Bienvenido {props.fullname}!
       </h3> 
       <br></br>
       <form onSubmit={handleSubmitPopup}> 
@@ -126,7 +125,7 @@ setTriggerPopUp(true);
         <span className=" block text-lg font-medium text-slate-700">
     Nombre Completo
     </span>
-         <input value={fullname} onChange={(e) => setFullname (e.target.value)} type="fullname" className="mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 "
+         <input value={props.fullname} onChange={(e) => props.setFullname (e.target.value)} type="fullname" className="mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 "
         placeholder= "Ejemplo: Tu Nombre Completo Acá" id="fullname" name="fullname"/>
         <div className=" text-center text-red-600 "> {errorName && renderErrortxt ("⚠️ Por favor ingresa tu Nombre Completo ⚠️")} </div>
         </label>
@@ -137,7 +136,7 @@ setTriggerPopUp(true);
        <span className=" block text-lg font-medium text-slate-700">
     Username
     </span>
-       <input value={username} onChange={(e) => setUsername (e.target.value)} type="username"
+       <input value={props.username} onChange={(e) => props.setUsername (e.target.value)} type="username"
         className="mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md sm:text-sm focus:ring-1 "
          placeholder= "Ejemplo: Username87" id="username" name="username"/>
          <div className= " text-center text-red-600 ">  {errorUsername && renderErrortxt (" ⚠️ Por favor ingresa tu Username ⚠️ ")}</div>

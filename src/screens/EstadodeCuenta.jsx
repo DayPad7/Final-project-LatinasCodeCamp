@@ -41,11 +41,11 @@ const handleSubmitfondos = (e) => {
 
   return (
     <div>
-<section className=" flex flex-col text-center h-full w-full">
+<section className=" flex flex-col text-center h-full w-full m-10 ">
 
 
       <h1 
-      className='text-xl font-bold text-center text-red-400 tracking-wide py-1'>
+      className='text-2xl font-bold text-center text-red-400 tracking-wide py-1'>
         Estado de Cuenta 
          </h1>
 
@@ -61,7 +61,7 @@ type="number" className="  mt-1 px-3 py-2 bg-white shadow-sm border-slate-300 pl
        </label>
        <br></br>
 
-<button onClick= {handleSubmitfondos} className= " w-60 font-medium text-xl rounded-md py-3  bg-red-300 hover:bg-red-400 ..." > Depositar </button>
+<button onClick= {handleSubmitfondos} className= " w-40 font-medium text-xl rounded-md py-2  bg-red-300 hover:bg-red-400 ..." > Depositar </button>
   
   </form>
       </section>

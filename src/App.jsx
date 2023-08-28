@@ -10,21 +10,25 @@ import "./index.css";
 
 
 
+
+
 function App () {
 
-  const [login, setLogin] = useState(true)
-  const [cash, setCash] = useState(100)
+  const [login, setLogin] = useState(false)
+  const [fullname, setFullname] = useState ('')
+  const [username, setUsername] = useState ('')
+  const [cash, setCash] = useState(1000)
   const [appleStocks, setappleStock]= useState ({
     'name': ' Apple Inc',
     'price': 500 , 
     'amount': 100 ,
-    'usershare': 10,
+    'usershare': 30,
 })
 const [techStocks, settechStock]= useState ({
-    'name': 'Tech',
+    'name': '🐱‍💻 Tech',
     'price': 300 , 
     'amount': 20 ,
-    'usershare': 10,
+    'usershare': 40,
 })
   const [pin, setPin] = useState("1234")
 
@@ -36,15 +40,23 @@ return (
 <div className= 'App'
 >
 
-      {!login && (<Login realPin={pin}  setLoginStatus={setLogin} />)}
+      {!login && (<Login realPin={pin}  setLoginStatus={setLogin} 
+      fullname={fullname} setFullname ={setFullname}
+      username ={username} setUsername= {setUsername}
+      />)}
 
       {login && (<HomePage realPin={pin}  setRealPin = {setPin} 
       setLoginStatus={setLogin} 
       initialCash = {cash}   setCash= {setCash}
       appleStocks ={appleStocks} setappleStock = {setappleStock}
       techStocks= {techStocks} settechStock = {settechStock}
+      fullname={fullname}  username ={username} 
+
+      
+    
       
       />)}
+   
 
 </div>
 </Router>
